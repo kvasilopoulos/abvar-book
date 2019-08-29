@@ -1,0 +1,5 @@
+book_filename: "abvar-book"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Chapter "
