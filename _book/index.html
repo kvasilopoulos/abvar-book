@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="" xml:lang="">
 <head>
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
-  <meta name="generator" content="bookdown 0.12 and GitBook 2.6.7" />
+  <title>All aBout Vector Regression</title>
+  <meta name="description" content="A book accompanying the package {abvar}." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Minimal Book Example" />
+  <meta property="og:title" content="All aBout Vector Regression" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="A book accompanying the package {abvar}." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Minimal Book Example" />
+  <meta name="twitter:title" content="All aBout Vector Regression" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="A book accompanying the package {abvar}." />
   
 
 <meta name="author" content="Yihui Xie" />
 
 
-<meta name="date" content="2019-08-29" />
+<meta name="date" content="2020-06-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="intro.html">
+<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -129,8 +132,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Prerequisites</a></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a></li>
-<li class="chapter" data-level="3" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>3</b> Literature</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#features-and-namimg-convention"><i class="fa fa-check"></i><b>2.1</b> Features and namimg convention</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#estimation"><i class="fa fa-check"></i><b>2.2</b> Estimation</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#classical-models"><i class="fa fa-check"></i><b>2.2.1</b> Classical Models</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#markov-switching"><i class="fa fa-check"></i><b>2.2.2</b> Markov Switching</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#bayesian-var-with-analytical-solution"><i class="fa fa-check"></i><b>2.2.3</b> Bayesian VAR with analytical Solution</a></li>
+<li class="chapter" data-level="2.2.4" data-path="intro.html"><a href="intro.html#bayesian-var-with-gibbs-sampler"><i class="fa fa-check"></i><b>2.2.4</b> Bayesian VAR with Gibbs Sampler</a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#prior-tools-for-bvars"><i class="fa fa-check"></i><b>2.3</b> Prior tools for BVARs</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#identification"><i class="fa fa-check"></i><b>2.4</b> Identification</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#applicationsmethods"><i class="fa fa-check"></i><b>2.5</b> Applications/Methods</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#extra"><i class="fa fa-check"></i><b>2.6</b> Extra</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#tests"><i class="fa fa-check"></i><b>2.7</b> Tests</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#counterfactuals"><i class="fa fa-check"></i><b>2.8</b> Counterfactuals</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#forecast-scenarios"><i class="fa fa-check"></i><b>2.9</b> Forecast Scenarios</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#diagnostics"><i class="fa fa-check"></i><b>2.10</b> Diagnostics</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#accompanying"><i class="fa fa-check"></i><b>2.10.1</b> Accompanying</a></li>
+</ul></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#see-also-other-packages"><i class="fa fa-check"></i><b>2.11</b> See also other packages</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="intro.html"><a href="intro.html#estimation"><i class="fa fa-check"></i><b>3</b> Estimation</a><ul>
+<li class="chapter" data-level="3.1" data-path="estimation.html"><a href="estimation.html"><i class="fa fa-check"></i><b>3.1</b> Reduce form VAR(p)</a></li>
+<li class="chapter" data-level="3.2" data-path="estimation.html"><a href="estimation.html#structural-form-varp"><i class="fa fa-check"></i><b>3.2</b> Structural Form VAR(p)</a></li>
+<li class="chapter" data-level="3.3" data-path="estimation.html"><a href="estimation.html#compact-form"><i class="fa fa-check"></i><b>3.3</b> Compact Form</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="estimation.html"><a href="estimation.html#impulse-response-function"><i class="fa fa-check"></i><b>3.3.1</b> Impulse Response Function</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="estimation.html"><a href="estimation.html#minessota-prior"><i class="fa fa-check"></i><b>3.4</b> Minessota prior</a></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="methods.html"><a href="methods.html"><i class="fa fa-check"></i><b>4</b> Methods</a></li>
 <li class="chapter" data-level="5" data-path="applications.html"><a href="applications.html"><i class="fa fa-check"></i><b>5</b> Applications</a><ul>
 <li class="chapter" data-level="5.1" data-path="applications.html"><a href="applications.html#example-one"><i class="fa fa-check"></i><b>5.1</b> Example one</a></li>
@@ -138,6 +167,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="6" data-path="final-words.html"><a href="final-words.html"><i class="fa fa-check"></i><b>6</b> Final Words</a></li>
 <li class="chapter" data-level="" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i>References</a></li>
+<li class="chapter" data-level="7" data-path="literature.html"><a href="literature.html"><i class="fa fa-check"></i><b>7</b> Literature</a></li>
+<li class="chapter" data-level="8" data-path="favar.html"><a href="favar.html"><i class="fa fa-check"></i><b>8</b> FAVAR</a></li>
+<li class="chapter" data-level="9" data-path="algo.html"><a href="algo.html"><i class="fa fa-check"></i><b>9</b> Algorithms</a><ul>
+<li class="chapter" data-level="9.1" data-path="algo.html"><a href="algo.html#irf"><i class="fa fa-check"></i><b>9.1</b> IRF</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="algo.html"><a href="algo.html#companion"><i class="fa fa-check"></i><b>9.1.1</b> Companion</a></li>
+<li class="chapter" data-level="9.1.2" data-path="algo.html"><a href="algo.html#irf_algo1"><i class="fa fa-check"></i><b>9.1.2</b> Algorithm 1</a></li>
+<li class="chapter" data-level="9.1.3" data-path="algo.html"><a href="algo.html#irf_algo2"><i class="fa fa-check"></i><b>9.1.3</b> Algorithm 2</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="algo.html"><a href="algo.html#error-bands-for-impulse-response-function"><i class="fa fa-check"></i><b>9.2</b> Error Bands for Impulse Response Function</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="algo.html"><a href="algo.html#irf_as_algo1"><i class="fa fa-check"></i><b>9.2.1</b> Asymptotic</a></li>
+<li class="chapter" data-level="9.2.2" data-path="algo.html"><a href="algo.html#irf_mc_algo1"><i class="fa fa-check"></i><b>9.2.2</b> Mote Carlo</a></li>
+<li class="chapter" data-level="9.2.3" data-path="algo.html"><a href="algo.html#irf_boot_algo1"><i class="fa fa-check"></i><b>9.2.3</b> Bootstrap</a></li>
+<li class="chapter" data-level="9.2.4" data-path="algo.html"><a href="algo.html#irf_boot2_algo1"><i class="fa fa-check"></i><b>9.2.4</b> Bootstrap after Bootstrap</a></li>
+<li class="chapter" data-level="9.2.5" data-path="algo.html"><a href="algo.html#algorithm-2.2.1-impulse-response-functions-all-priors"><i class="fa fa-check"></i><b>9.2.5</b> Algorithm 2.2.1 (impulse response functions, all priors):</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -150,7 +195,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">All aBout Vector Regression</a>
           </h1>
         </div>
 
@@ -159,9 +204,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="header">
-<h1 class="title">A Minimal Book Example</h1>
+<h1 class="title">All aBout Vector Regression</h1>
 <p class="author"><em>Yihui Xie</em></p>
-<p class="date"><em>2019-08-29</em></p>
+<p class="date"><em>2020-06-08</em></p>
 </div>
 <div id="prerequisites" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Prerequisites</h1>
@@ -185,11 +230,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -197,12 +244,11 @@ gitbook.start({
 "github": false,
 "facebook": true,
 "twitter": true,
-"google": false,
 "linkedin": false,
 "weibo": false,
 "instapaper": false,
 "vk": false,
-"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
 "theme": "white",
@@ -214,6 +260,10 @@ gitbook.start({
 "text": null
 },
 "history": {
+"link": null,
+"text": null
+},
+"view": {
 "link": null,
 "text": null
 },
@@ -232,8 +282,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

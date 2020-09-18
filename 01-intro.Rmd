@@ -1,21 +1,129 @@
 # Introduction {#intro}
 
-You can label chapter and section titles using `{#label}` after them, e.g., we can reference Chapter \@ref(intro). If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \@ref(methods).
+## Features and namimg convention
 
-Figures and tables with captions will be placed in `figure` and `table` environments, respectively.
+  - `fa`: Factor Augementing
+  - `sv`: Stochastic Volatility
+  - `tvp`: Time Varying Parametrs
 
-```{r nice-fig, fig.cap='Here is a nice figure!', out.width='80%', fig.asp=.75, fig.align='center'}
-par(mar = c(4, 4, .1, .1))
-plot(pressure, type = 'b', pch = 19)
-```
+## Estimation 
 
-Reference a figure by its code chunk label with the `fig:` prefix, e.g., see Figure \@ref(fig:nice-fig). Similarly, you can reference tables generated from `knitr::kable()`, e.g., see Table \@ref(tab:nice-tab).
+### Classical Models
 
-```{r nice-tab, tidy=FALSE}
-knitr::kable(
-  head(iris, 20), caption = 'Here is a nice table!',
-  booktabs = TRUE
-)
-```
+  - `var_ls` : Classical 
+  - `var_ml` : Maximum Likelihood (for illustration purposes)
+  - `var_gls`: Generalized Linear Squares
+  - `var_bc` : Bias-Correction
+  
+  - `var_tvp`: Time Varing Parameter
+  - `var_sv`: Stochastic Volatility
+  - `var_tvp_sv`: Time Varing Parameter & Stochastic Volatility
+  
+  - `favar`: Factor Augmented
+  - `favar_tvp`: Factor Augement Time Varying Parameter
 
-You can write citations, too. For example, we are using the **bookdown** package [@R-bookdown] in this sample book, which was built on top of R Markdown and **knitr** [@xie2015].
+  - `bvar_lrg`: Large Bayesian VAR (see pkg lbvar)
+
+### Markov Switching
+
+  - `msvar`: regime-switching models with fixed transition probabilities
+
+### Bayesian VAR with analytical Solution
+  
+  - `bvar_diff`: Diffuse prior
+  - `bvar_conj`: Conjucate prior
+  - `bvar_minn`: Minnesota prior
+  - `bvar_ss`  : Steady State prior
+    
+### Bayesian VAR with Gibbs Sampler
+
+  - `bvar_svss`: Stochastic Search Variables Selection
+  - `bvar_fvs` : Flexible Variable Selection
+  - `bvar_cnw` : Conditional Normal-inverse-Wishart prior 
+  - `bvar_inw` : Independent Normal-inverse-Wishart prior
+    
+
+## Prior tools for BVARs
+
+  - Hyperparameter optimasation by grid search
+  - Block exogeneity
+  - Dummy observation ...
+
+
+## Identification
+
+  - `id_chol`: Choleski factorisation (short-run restrictions)
+  - `id_triang`:Triangluar factorisation (short-run restrictions)
+  - `id_lr`: Long run restrictions
+  - `id_sign`: Sign, magnitude and zero restrictions (Arias et al., 2014)
+  - `id_iv`: Instrumental variables estimation Stock and Watson (2012) & Mertens and Ravn (2013)
+  
+## Applications/Methods
+
+  - `irf`: Impulse response functions
+  - `forecast`: Uncondtional forecasts
+  - `fevd`:Forecast error variance decomposition
+  - `hd`: Historical Decomposition
+  
+  - `forecast_shock`: Condtional forecasts: shock approach (Waggoner and Zha, 1999)
+  - `forecast_tilt`: Condtional forecasts: tilting approach (Robertson et al., 2005)
+  - `forecast_eval`: Forecast Evaluation
+    
+## Extra
+
+  - Non-fundamentanless
+  - Lag Order Selection Procedures
+    - Top-down Sequential Testing
+    - Bottom-up Sequential Testing
+  - Granger Causality
+  - `vecm`
+  - Information Criteria (aic, hqc, sic)
+    
+## Tests
+
+  - Residual Autocorrelation
+      - Portmanteau Test for Residual Autocorrelation
+      - LM Test for Residual Autocorrelation
+  - Stability
+  - Time Invariance
+  - Heteroskedasticity
+  - Normality
+
+## Counterfactuals
+ 
+  - Simulation
+  - Policy
+  
+## Forecast Scenarios
+
+## Diagnostics
+ 
+  - Convergence test
+  - Histograms of the posterior
+  - Gaussian kernel estimation
+  - Recursive Moments
+  - Trace plots
+    
+### Accompanying
+
+  - Filtering (forthcoming transx)
+  - Simulation (forthcoming simdgp)
+  - Data (forthcoming econdata)
+  - Unit Root test (see urca)
+  
+## See also other packages
+
+  - `vars`
+  - `svars`
+  - `bvars`:  https://github.com/joergrieger/bvars
+  - `bvarsv`:https://cran.r-project.org/web/packages/bvarsv/index.html
+  - `lbvar`: https://github.com/gabrielrvsc/lbvar
+  - `bvartools`: https://github.com/franzmohr/bvartools
+  - `bvar`: https://github.com/nk027/bvar
+  - `bvarrKK`: https://github.com/bdemeshev/bvarrKK
+  - `mfbvar`: https://github.com/ankargren/mfbvar
+  - `BMR` 
+  - `GediminasB/bayesVAR_TVP`
+  - `ragt2ridges`
+  
+  

@@ -1,0 +1,5 @@
+# FAVAR
+
+Factor augmented VAR model introduce in Bernanke et (2005). The FAVAR model can be writtern compactly as
+
+$$y_{i,t} = \lambda_i f_t = \gamma_i r_t + \epsilon_{it}$$
