@@ -1,0 +1,722 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{mathtools}
+\usepackage[]{natbib}
+\bibliographystyle{plainnat}
+
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+
+{
+\setcounter{tocdepth}{2}
+\tableofcontents
+}
+\hypertarget{intro}{%
+\section{Introduction}\label{intro}}
+
+\hypertarget{features-and-namimg-convention}{%
+\subsection{Features and namimg convention}\label{features-and-namimg-convention}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{fa}: Factor Augementing
+\item
+  \texttt{sv}: Stochastic Volatility
+\item
+  \texttt{tvp}: Time Varying Parametrs
+\end{itemize}
+
+\hypertarget{estimation}{%
+\subsection{Estimation}\label{estimation}}
+
+\hypertarget{classical-models}{%
+\subsubsection{Classical Models}\label{classical-models}}
+
+\begin{itemize}
+\item
+  \texttt{var\_ls} : Classical
+\item
+  \texttt{var\_ml} : Maximum Likelihood (for illustration purposes)
+\item
+  \texttt{var\_gls}: Generalized Linear Squares
+\item
+  \texttt{var\_bc} : Bias-Correction
+\item
+  \texttt{var\_tvp}: Time Varing Parameter
+\item
+  \texttt{var\_sv}: Stochastic Volatility
+\item
+  \texttt{var\_tvp\_sv}: Time Varing Parameter \& Stochastic Volatility
+\item
+  \texttt{favar}: Factor Augmented
+\item
+  \texttt{favar\_tvp}: Factor Augement Time Varying Parameter
+\item
+  \texttt{bvar\_lrg}: Large Bayesian VAR (see pkg lbvar)
+\end{itemize}
+
+\hypertarget{markov-switching}{%
+\subsubsection{Markov Switching}\label{markov-switching}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{msvar}: regime-switching models with fixed transition probabilities
+\end{itemize}
+
+\hypertarget{bayesian-var-with-analytical-solution}{%
+\subsubsection{Bayesian VAR with analytical Solution}\label{bayesian-var-with-analytical-solution}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{bvar\_diff}: Diffuse prior
+\item
+  \texttt{bvar\_conj}: Conjucate prior
+\item
+  \texttt{bvar\_minn}: Minnesota prior
+\item
+  \texttt{bvar\_ss} : Steady State prior
+\end{itemize}
+
+\hypertarget{bayesian-var-with-gibbs-sampler}{%
+\subsubsection{Bayesian VAR with Gibbs Sampler}\label{bayesian-var-with-gibbs-sampler}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{bvar\_svss}: Stochastic Search Variables Selection
+\item
+  \texttt{bvar\_fvs} : Flexible Variable Selection
+\item
+  \texttt{bvar\_cnw} : Conditional Normal-inverse-Wishart prior
+\item
+  \texttt{bvar\_inw} : Independent Normal-inverse-Wishart prior
+\end{itemize}
+
+\hypertarget{prior-tools-for-bvars}{%
+\subsection{Prior tools for BVARs}\label{prior-tools-for-bvars}}
+
+\begin{itemize}
+\tightlist
+\item
+  Hyperparameter optimasation by grid search
+\item
+  Block exogeneity
+\item
+  Dummy observation \ldots{}
+\end{itemize}
+
+\hypertarget{identification}{%
+\subsection{Identification}\label{identification}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{id\_chol}: Choleski factorisation (short-run restrictions)
+\item
+  \texttt{id\_triang}:Triangluar factorisation (short-run restrictions)
+\item
+  \texttt{id\_lr}: Long run restrictions
+\item
+  \texttt{id\_sign}: Sign, magnitude and zero restrictions (Arias et al., 2014)
+\item
+  \texttt{id\_iv}: Instrumental variables estimation Stock and Watson (2012) \& Mertens and Ravn (2013)
+\end{itemize}
+
+\hypertarget{applicationsmethods}{%
+\subsection{Applications/Methods}\label{applicationsmethods}}
+
+\begin{itemize}
+\item
+  \texttt{irf}: Impulse response functions
+\item
+  \texttt{forecast}: Uncondtional forecasts
+\item
+  \texttt{fevd}:Forecast error variance decomposition
+\item
+  \texttt{hd}: Historical Decomposition
+\item
+  \texttt{forecast\_shock}: Condtional forecasts: shock approach (Waggoner and Zha, 1999)
+\item
+  \texttt{forecast\_tilt}: Condtional forecasts: tilting approach (Robertson et al., 2005)
+\item
+  \texttt{forecast\_eval}: Forecast Evaluation
+\end{itemize}
+
+\hypertarget{extra}{%
+\subsection{Extra}\label{extra}}
+
+\begin{itemize}
+\tightlist
+\item
+  Non-fundamentanless
+\item
+  Lag Order Selection Procedures
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Top-down Sequential Testing
+  \item
+    Bottom-up Sequential Testing
+  \end{itemize}
+\item
+  Granger Causality
+\item
+  \texttt{vecm}
+\item
+  Information Criteria (aic, hqc, sic)
+\end{itemize}
+
+\hypertarget{tests}{%
+\subsection{Tests}\label{tests}}
+
+\begin{itemize}
+\tightlist
+\item
+  Residual Autocorrelation
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Portmanteau Test for Residual Autocorrelation
+  \item
+    LM Test for Residual Autocorrelation
+  \end{itemize}
+\item
+  Stability
+\item
+  Time Invariance
+\item
+  Heteroskedasticity
+\item
+  Normality
+\end{itemize}
+
+\hypertarget{counterfactuals}{%
+\subsection{Counterfactuals}\label{counterfactuals}}
+
+\begin{itemize}
+\tightlist
+\item
+  Simulation
+\item
+  Policy
+\end{itemize}
+
+\hypertarget{forecast-scenarios}{%
+\subsection{Forecast Scenarios}\label{forecast-scenarios}}
+
+\hypertarget{diagnostics}{%
+\subsection{Diagnostics}\label{diagnostics}}
+
+\begin{itemize}
+\tightlist
+\item
+  Convergence test
+\item
+  Histograms of the posterior
+\item
+  Gaussian kernel estimation
+\item
+  Recursive Moments
+\item
+  Trace plots
+\end{itemize}
+
+\hypertarget{accompanying}{%
+\subsubsection{Accompanying}\label{accompanying}}
+
+\begin{itemize}
+\tightlist
+\item
+  Filtering (forthcoming transx)
+\item
+  Simulation (forthcoming simdgp)
+\item
+  Data (forthcoming econdata)
+\item
+  Unit Root test (see urca)
+\end{itemize}
+
+\hypertarget{see-also-other-packages}{%
+\subsection{See also other packages}\label{see-also-other-packages}}
+
+\begin{itemize}
+\tightlist
+\item
+  \texttt{vars}
+\item
+  \texttt{svars}
+\item
+  \texttt{bvars}: \url{https://github.com/joergrieger/bvars}
+\item
+  \texttt{bvarsv}:\url{https://cran.r-project.org/web/packages/bvarsv/index.html}
+\item
+  \texttt{lbvar}: \url{https://github.com/gabrielrvsc/lbvar}
+\item
+  \texttt{bvartools}: \url{https://github.com/franzmohr/bvartools}
+\item
+  \texttt{bvar}: \url{https://github.com/nk027/bvar}
+\item
+  \texttt{bvarrKK}: \url{https://github.com/bdemeshev/bvarrKK}
+\item
+  \texttt{mfbvar}: \url{https://github.com/ankargren/mfbvar}
+\item
+  \texttt{BMR}
+\item
+  \texttt{GediminasB/bayesVAR\_TVP}
+\item
+  \texttt{ragt2ridges}
+\end{itemize}
+
+\hypertarget{estimation}{%
+\section{Estimation}\label{estimation}}
+
+\hypertarget{reduce-form-varp}{%
+\subsection{Reduce form VAR(p)}\label{reduce-form-varp}}
+
+\[y_{t}= A_1y_{t-1} + \cdots + A_p y_{t-p} + u_t\]
+
+\hypertarget{structural-form-varp}{%
+\subsection{Structural Form VAR(p)}\label{structural-form-varp}}
+
+\[B_0y_{t}= B_{1}y_{{t-1}}+\cdots +B_{p}y_{{t-p}}+e_{t}\]
+
+Let try some text here:
+
+\begin{itemize}
+\item
+  \(E(e_t) = 0\) --- every error term has mean zero \(\alpha\)
+\item
+  \(E (e_{t}e_{t}')= \Omega\) --- the contemporaneous covariance matrix of error terms is \(\Omega\)
+  (a k × k positive-semidefinite matrix)
+\item
+  \(E(e_{t}e_{{t-k}}')=0\) --- for any non-zero k --- there is no correlation across time; in particular, no serial correlation in individual error terms.{[}1{]}
+\end{itemize}
+
+\[y_{t}= \underbrace{B_0^{-1}B_{1}y_{{t-1}}}_{A_1} + \cdots + \underbrace{B_0^{-1}B_{p}y_{{t-p}}}_{A_p} + \underbrace{B_0^{-1}e_{t}}_{w_t}\]
+
+\hypertarget{compact-form}{%
+\subsection{Compact Form}\label{compact-form}}
+
+Consider the VAR(p) model (??) written in more compact form
+
+\$\$y\_t =
+
+\[Y = AZ + U\]
+where \(Z = [1, y_{t-1}', \cdots, y_{t-p}']\)
+
+\[\hat{A} = [\hat{\nu_t}, \hat{A_1}, \cdots, \hat{A_p}] = (Z'Z)^{-1}Z'Y\]
+\[\hat{U} = Y - Z\hat{A}\]
+\[\hat{\Sigma_u} = \dfrac{(\hat{U}' \hat{U})^{-1}}{(N-Kp-p-1)}\]
+
+\hypertarget{impulse-response-function}{%
+\subsubsection{Impulse Response Function}\label{impulse-response-function}}
+
+Given \(B_)\) and \(u_t\), we immediately obtain \(w_t = B_0u_t\). Having identified the
+structural shocks \(w_t\), our interest usually is not in the shocks themselves, how-
+ever, but in the responses of each element of yt = (y1t,\ldots,yKt) to a one-time
+impulse in wt = (w1t,\ldots,wKt)
+
+\[\dfrac{∂yt+i}{∂w_t} = \Theta_i, \quad i = 0, 1, 2, . . . , H, \]
+
+where Θi is a K ×K matrix. The elements of this matrix for given i are denoted as
+
+\[ θ_{jk,i} = \dfrac{∂y_{j,t+i}}{∂w_{kt}} \]
+such that \(\Theta_i = [\theta_{jk,t}].\)
+
+By successive substitution for \(Y_{t−i}\), equation can be written as
+\[ Y_{t+i} = A_{i+1}Y_{t−1} + \sum^i_{j=0} A_jU_{t+i−j}\]
+
+Left-multiplying this equation by \(J ≡ [I_K, 0_{K×K(p−1)}]\) yields
+\begin{align}
+y_{t+i} = & JA_{i+1}Y_{t−1} + \sum^{i}_{j=0} JA^jU_{t+i−j} \\
+        = & JA^{i+1}Y_{t−1} + \sum^i_{j=0} JA^{j}J'JU_{t+i−j} \\
+        = & JA^{i+1}Y_{t−1} + \sum^i_{j=0} JA^{j}Ju_{t+i−j} \\
+\end{align}
+
+Thus, the response of the variable j = 1,\ldots,K in the VAR(p) system to a unit
+shock ukt, k = 1,\ldots,K, i periods ago, is given by:
+
+\[ \underset{K×K}{\Phi_i} = [\phi_{jk,i}] ≡ JA^iJ'\]
+
+The \(\phi_i\) are also sometimes referred to as responses to VAR forecast errors, as
+dynamic multipliers, or simply as reduced-form impulse responses.
+
+\hypertarget{minessota-prior}{%
+\subsection{Minessota prior}\label{minessota-prior}}
+
+The simplest form of prior distributions for VAR models is known as the Minnesota (or Litterman) prior. In this framework, it is assumed that the VAR residual variance-covariance matrix \(\Sigma\) is known. Hence, the only object left to estimate is the vector of parameters \(\beta\). To obtain the posterior distribution for \(\beta\) from 1.2.3, one needs two elements: the likelihood function \(f(y |\beta)\) for the data,
+and a prior distribution \(\pi(\beta)\) for \(\beta\).
+
+\(y\sim \mathcal{N}(\tilde{X}\beta, \tilde{\Sigma})\) Therefore, one may write the likelihood for y as:
+
+\[f(y|\beta, \tilde{\Sigma}) = (2\pi)^{-nT/2} |\tilde{\Sigma}|^{-1/2}\exp[-\dfrac{1}{2}(y-\tilde{X}\beta)\tilde{\Sigma}^{-1}(y-\tilde{X}\beta)]\]
+
+Ignoring terms independent from \(\beta\) relegated to proportionality simplifies to:
+
+\[f(y|\beta, \tilde{\Sigma})\propto \exp[-\dfrac{1}{2}(y-\tilde{X}\beta)\tilde{\Sigma}^{-1}(y-\tilde{X}\beta)]\]
+
+Now turn to the prior distribution for \(\beta\). It is assumed that \(\beta\) follows a multivariate normal distribution, with mean \(\beta_0\) and covariance matrix \(\Omega_0\):
+
+\[\pi(\beta) \sim \mathcal{N}(\beta_0, \Omega_0)\]
+
+To identify \(\beta_0\) and \(\Omega_0\), Litterman (1986) proposed the following strategy. As most observed macroeconomic variables seem to be characterized by a unit root (in the sense that their changes are impossible to forecast), our prior belief should be that each endogenous variable included in the model presents a unit root in its first own lags, and coefficients equal to zero for further lags and cross-variable lag coefficients. In the absence of prior belief about exogenous variables, the most reasonable strategy is to assume that they are neutral with respect to the endogenous variables, and hence that their coefficients are equal to zero as well. These elements translate into \(\beta_0\) being a vector of zeros, save for the entries concerning the first own lag of each endogenous variable which are attributed values of 1. Note though that in the case of variables known to be stationary, this unit root hypothesis may not be suitable, so that a value around 0.8 may be preferred to a value of 1.
+
+\hypertarget{methods}{%
+\section{Methods}\label{methods}}
+
+We describe our methods in this chapter.
+
+\hypertarget{applications}{%
+\section{Applications}\label{applications}}
+
+Some \emph{significant} applications are demonstrated in this chapter.
+
+\hypertarget{example-one}{%
+\subsection{Example one}\label{example-one}}
+
+\hypertarget{example-two}{%
+\subsection{Example two}\label{example-two}}
+
+\hypertarget{final-words}{%
+\section{Final Words}\label{final-words}}
+
+We have finished a nice book.
+
+\hypertarget{literature}{%
+\section{Literature}\label{literature}}
+
+Here is a review of existing methods.
+
+You can label chapter and section titles using \texttt{\{\#label\}} after them, e.g., we can reference Chapter \ref{intro}. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter \ref{methods}.
+
+Figures and tables with captions will be placed in \texttt{figure} and \texttt{table} environments, respectively.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.1}\NormalTok{, }\FloatTok{.1}\NormalTok{))}
+\KeywordTok{plot}\NormalTok{(pressure, }\DataTypeTok{type =} \StringTok{'b'}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{19}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{abvar-book_files/figure-latex/nice-fig-1} 
+
+}
+
+\caption{Here is a nice figure!}\label{fig:nice-fig}
+\end{figure}
+
+Reference a figure by its code chunk label with the \texttt{fig:} prefix, e.g., see Figure \ref{fig:nice-fig}. Similarly, you can reference tables generated from \texttt{knitr::kable()}, e.g., see Table \ref{tab:nice-tab}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\OperatorTok{::}\KeywordTok{kable}\NormalTok{(}
+  \KeywordTok{head}\NormalTok{(iris, }\DecValTok{20}\NormalTok{), }\DataTypeTok{caption =} \StringTok{'Here is a nice table!'}\NormalTok{,}
+  \DataTypeTok{booktabs =} \OtherTok{TRUE}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:nice-tab}Here is a nice table!}
+\centering
+\begin{tabular}[t]{rrrrl}
+\toprule
+Sepal.Length & Sepal.Width & Petal.Length & Petal.Width & Species\\
+\midrule
+5.1 & 3.5 & 1.4 & 0.2 & setosa\\
+4.9 & 3.0 & 1.4 & 0.2 & setosa\\
+4.7 & 3.2 & 1.3 & 0.2 & setosa\\
+4.6 & 3.1 & 1.5 & 0.2 & setosa\\
+5.0 & 3.6 & 1.4 & 0.2 & setosa\\
+\addlinespace
+5.4 & 3.9 & 1.7 & 0.4 & setosa\\
+4.6 & 3.4 & 1.4 & 0.3 & setosa\\
+5.0 & 3.4 & 1.5 & 0.2 & setosa\\
+4.4 & 2.9 & 1.4 & 0.2 & setosa\\
+4.9 & 3.1 & 1.5 & 0.1 & setosa\\
+\addlinespace
+5.4 & 3.7 & 1.5 & 0.2 & setosa\\
+4.8 & 3.4 & 1.6 & 0.2 & setosa\\
+4.8 & 3.0 & 1.4 & 0.1 & setosa\\
+4.3 & 3.0 & 1.1 & 0.1 & setosa\\
+5.8 & 4.0 & 1.2 & 0.2 & setosa\\
+\addlinespace
+5.7 & 4.4 & 1.5 & 0.4 & setosa\\
+5.4 & 3.9 & 1.3 & 0.4 & setosa\\
+5.1 & 3.5 & 1.4 & 0.3 & setosa\\
+5.7 & 3.8 & 1.7 & 0.3 & setosa\\
+5.1 & 3.8 & 1.5 & 0.3 & setosa\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+You can write citations, too. For example, we are using the \textbf{bookdown} package \citep{R-bookdown} in this sample book, which was built on top of R Markdown and \textbf{knitr} \citep{xie2015}.
+
+\hypertarget{favar}{%
+\section{FAVAR}\label{favar}}
+
+Factor augmented VAR model introduce in Bernanke et (2005). The FAVAR model can be writtern compactly as
+
+\[y_{i,t} = \lambda_i f_t = \gamma_i r_t + \epsilon_{it}\]
+
+\hypertarget{algo}{%
+\section{Algorithms}\label{algo}}
+
+\hypertarget{irf}{%
+\subsection{IRF}\label{irf}}
+
+\hypertarget{companion}{%
+\subsubsection{Companion}\label{companion}}
+
+\hypertarget{irf_algo1}{%
+\subsubsection{Algorithm 1}\label{irf_algo1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a 2D-array of \(Kp \times (h+1) \times Kp\)
+\item
+  Assign the shock to the first observation (unit, se, etc)
+\item
+  Iterate over the horizons 1, 2, \ldots, h where
+  \[ irf_{i+1} = irf_{i} A'\]
+\end{enumerate}
+
+\hypertarget{irf_algo2}{%
+\subsubsection{Algorithm 2}\label{irf_algo2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a array \(J = [I_k, 0_{K\times K(p-1)}]\)
+\item
+  Create an 3D-array of \(Kp \times (h + 1) \times Kp\) to store the irfs
+\item
+  Assign the shock to the first observation (unit, se, etc)
+\item
+  Iterate over the horizons for i = 1,2, \ldots, h where
+  \[ irf_{i+1} = J A^i J'\]
+\end{enumerate}
+
+\hypertarget{error-bands-for-impulse-response-function}{%
+\subsection{Error Bands for Impulse Response Function}\label{error-bands-for-impulse-response-function}}
+
+\hypertarget{irf_as_algo1}{%
+\subsubsection{Asymptotic}\label{irf_as_algo1}}
+
+\hypertarget{irf_mc_algo1}{%
+\subsubsection{Mote Carlo}\label{irf_mc_algo1}}
+
+\hypertarget{irf_boot_algo1}{%
+\subsubsection{Bootstrap}\label{irf_boot_algo1}}
+
+\hypertarget{irf_boot2_algo1}{%
+\subsubsection{Bootstrap after Bootstrap}\label{irf_boot2_algo1}}
+
+Montecarlo method proceeds as follows.1. DrawˆπlfromN(ˆπ,ˆΩ⊗ˆQ−1).2. computeC(L)l.3. Repeat 1-2M(withMbig, i.e.1000) times.4. For all the elementsCi,j,h,i,j= 1,\ldots,n,h= 1,2,\ldots of the impulse responsefunctions collect theαth and 1−αth percentile across the`draws as aconfidence interval forCi,j,h.
+
+\hypertarget{algorithm-2.2.1-impulse-response-functions-all-priors}{%
+\subsubsection{Algorithm 2.2.1 (impulse response functions, all priors):}\label{algorithm-2.2.1-impulse-response-functions-all-priors}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Define the number of iterations (It − Bu) of the algorithm, and the time horizon h.
+\item
+  Fix i = 1. Then set yi,T = 1.
+\item
+  At iteration n, draw \(\beta_{n}\) from its posterior distributions. Simply recycle draw n from the Gibbs sampler.
+\item
+  Generate recursively the simulated values \(\tilde{y}^{(n)}_{T+1}\), \(\tilde{y}^{(n)}_{T+2}\), \(\ldots\), \(\tilde{y}^{(n)}_{T+h}\) from 1.1.2: \(\tilde{y}^{(n)}_{T+1} = A_1y_t + A_2y_{t-1} + \ldots + A_py_{T+1-p}\). Once ˜yT+1 is computed, use: ˜y
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  T+2 = A1˜y
+\item
+  T+1 + A2yT + \ldots{} + ApyT+2−p
+  And continue this way until ˜y
+\item
+  T+h is obtained. Once again, both the exogenous terms and the
+  shocks are ignored since they are assumed to take a value of 0 at all periods. The values of
+  A,
+  1,A,
+  2\ldots A,
+  p come from \(\beta_{n}\).
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Discard \(\beta_{n}\) to obtain draws ˜y
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  T+1, ˜y
+\item
+  T+2\ldots˜y
+\item
+  T+h from the predictive distribution f(yT+1:T+h \textbar yT ).
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Repeat until (It−Bu) iterations have been performed. This produces:
+  n
+  ˜y
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{(\alph{enumi})}
+\setcounter{enumi}{13}
+\tightlist
+\item
+  T+1 \textbar yT , ˜y
+\item
+  T+2 \textbar yT , \ldots, ˜y
+\item
+  T+h \textbar yT
+  oIt−j=a sample of independent draws from the joint predictive distribution in the case yi,T = 1.
+\end{enumerate}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{6}
+\tightlist
+\item
+  Go back to step 2, and fix i = 2. Then go through steps 3-6 all over again. Then repeat the process for i = 3, \ldots, n.~This generates the impulse response functions for all the shocks in the model.
+\end{enumerate}
+
+\end{document}

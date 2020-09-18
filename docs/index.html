@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Estimation | Vector Autoregression with R</title>
-  <meta name="description" content="Chapter 2 Estimation | Vector Autoregression with R" />
+  <title>Vector Autoregression with R</title>
+  <meta name="description" content="Vector Autoregression with R" />
   <meta name="generator" content="bookdown 0.20 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Estimation | Vector Autoregression with R" />
+  <meta property="og:title" content="Vector Autoregression with R" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="hadley/adv-r" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Estimation | Vector Autoregression with R" />
+  <meta name="twitter:title" content="Vector Autoregression with R" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="intro.html"/>
-<link rel="next" href="methods.html"/>
+
+<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -205,79 +205,21 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="estimation" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Estimation</h1>
-<div id="reduce-form-varp" class="section level2">
-<h2><span class="header-section-number">2.1</span> Reduce form VAR(p)</h2>
-<p><span class="math display">\[y_{t}= A_1y_{t-1} + \cdots + A_p y_{t-p} + u_t\]</span></p>
+<div id="header">
+<h1 class="title">Vector Autoregression with R</h1>
+<p class="author"><em>Kostas Vasilopoulos</em></p>
 </div>
-<div id="structural-form-varp" class="section level2">
-<h2><span class="header-section-number">2.2</span> Structural Form VAR(p)</h2>
-<p><span class="math display">\[B_0y_{t}= B_{1}y_{{t-1}}+\cdots +B_{p}y_{{t-p}}+e_{t}\]</span></p>
-<p>Let try some text here:</p>
-<ul>
-<li><p><span class="math inline">\(E(e_t) = 0\)</span> — every error term has mean zero <span class="math inline">\(\alpha\)</span></p></li>
-<li><p><span class="math inline">\(E (e_{t}e_{t}&#39;)= \Omega\)</span> — the contemporaneous covariance matrix of error terms is <span class="math inline">\(\Omega\)</span>
-(a k × k positive-semidefinite matrix)</p></li>
-<li><p><span class="math inline">\(E(e_{t}e_{{t-k}}&#39;)=0\)</span> — for any non-zero k — there is no correlation across time; in particular, no serial correlation in individual error terms.[1]</p></li>
-</ul>
-<p><span class="math display">\[y_{t}= \underbrace{B_0^{-1}B_{1}y_{{t-1}}}_{A_1} + \cdots + \underbrace{B_0^{-1}B_{p}y_{{t-p}}}_{A_p} + \underbrace{B_0^{-1}e_{t}}_{w_t}\]</span></p>
-</div>
-<div id="compact-form" class="section level2">
-<h2><span class="header-section-number">2.3</span> Compact Form</h2>
-<p>Consider the VAR(p) model (??) written in more compact form</p>
-<p>$$y_t =</p>
-<p><span class="math display">\[Y = AZ + U\]</span>
-where <span class="math inline">\(Z = [1, y_{t-1}&#39;, \cdots, y_{t-p}&#39;]\)</span></p>
-<p><span class="math display">\[\hat{A} = [\hat{\nu_t}, \hat{A_1}, \cdots, \hat{A_p}] = (Z&#39;Z)^{-1}Z&#39;Y\]</span>
-<span class="math display">\[\hat{U} = Y - Z\hat{A}\]</span>
-<span class="math display">\[\hat{\Sigma_u} = \dfrac{(\hat{U}&#39; \hat{U})^{-1}}{(N-Kp-p-1)}\]</span></p>
-<div id="impulse-response-function" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Impulse Response Function</h3>
-<p>Given <span class="math inline">\(B_)\)</span> and <span class="math inline">\(u_t\)</span>, we immediately obtain <span class="math inline">\(w_t = B_0u_t\)</span>. Having identified the
-structural shocks <span class="math inline">\(w_t\)</span>, our interest usually is not in the shocks themselves, how-
-ever, but in the responses of each element of yt = (y1t,…,yKt) to a one-time
-impulse in wt = (w1t,…,wKt)</p>
-<p><span class="math display">\[\dfrac{∂yt+i}{∂w_t} = \Theta_i, \quad i = 0, 1, 2, . . . , H, \]</span></p>
-<p>where Θi is a K ×K matrix. The elements of this matrix for given i are denoted as</p>
-<p><span class="math display">\[ θ_{jk,i} = \dfrac{∂y_{j,t+i}}{∂w_{kt}} \]</span>
-such that <span class="math inline">\(\Theta_i = [\theta_{jk,t}].\)</span></p>
-<p>By successive substitution for <span class="math inline">\(Y_{t−i}\)</span>, equation can be written as
-<span class="math display">\[ Y_{t+i} = A_{i+1}Y_{t−1} + \sum^i_{j=0} A_jU_{t+i−j}\]</span></p>
-<p>Left-multiplying this equation by <span class="math inline">\(J ≡ [I_K, 0_{K×K(p−1)}]\)</span> yields
-<span class="math display">\[\begin{align}
-y_{t+i} = &amp; JA_{i+1}Y_{t−1} + \sum^{i}_{j=0} JA^jU_{t+i−j} \\
-        = &amp; JA^{i+1}Y_{t−1} + \sum^i_{j=0} JA^{j}J&#39;JU_{t+i−j} \\
-        = &amp; JA^{i+1}Y_{t−1} + \sum^i_{j=0} JA^{j}Ju_{t+i−j} \\
-\end{align}\]</span></p>
-<p>Thus, the response of the variable j = 1,…,K in the VAR(p) system to a unit
-shock ukt, k = 1,…,K, i periods ago, is given by:</p>
-<p><span class="math display">\[ \underset{K×K}{\Phi_i} = [\phi_{jk,i}] ≡ JA^iJ&#39;\]</span></p>
-<p>The <span class="math inline">\(\phi_i\)</span> are also sometimes referred to as responses to VAR forecast errors, as
-dynamic multipliers, or simply as reduced-form impulse responses.</p>
-</div>
-</div>
-<div id="minessota-prior" class="section level2">
-<h2><span class="header-section-number">2.4</span> Minessota prior</h2>
-<p>The simplest form of prior distributions for VAR models is known as the Minnesota (or Litterman) prior. In this framework, it is assumed that the VAR residual variance-covariance matrix <span class="math inline">\(\Sigma\)</span> is known. Hence, the only object left to estimate is the vector of parameters <span class="math inline">\(\beta\)</span>. To obtain the posterior distribution for <span class="math inline">\(\beta\)</span> from 1.2.3, one needs two elements: the likelihood function <span class="math inline">\(f(y |\beta)\)</span> for the data,
-and a prior distribution <span class="math inline">\(\pi(\beta)\)</span> for <span class="math inline">\(\beta\)</span>.</p>
-<p><span class="math inline">\(y\sim \mathcal{N}(\tilde{X}\beta, \tilde{\Sigma})\)</span> Therefore, one may write the likelihood for y as:</p>
-<p><span class="math display">\[f(y|\beta, \tilde{\Sigma}) = (2\pi)^{-nT/2} |\tilde{\Sigma}|^{-1/2}\exp[-\dfrac{1}{2}(y-\tilde{X}\beta)\tilde{\Sigma}^{-1}(y-\tilde{X}\beta)]\]</span></p>
-<p>Ignoring terms independent from <span class="math inline">\(\beta\)</span> relegated to proportionality simplifies to:</p>
-<p><span class="math display">\[f(y|\beta, \tilde{\Sigma})\propto \exp[-\dfrac{1}{2}(y-\tilde{X}\beta)\tilde{\Sigma}^{-1}(y-\tilde{X}\beta)]\]</span></p>
-<p>Now turn to the prior distribution for <span class="math inline">\(\beta\)</span>. It is assumed that <span class="math inline">\(\beta\)</span> follows a multivariate normal distribution, with mean <span class="math inline">\(\beta_0\)</span> and covariance matrix <span class="math inline">\(\Omega_0\)</span>:</p>
-<p><span class="math display">\[\pi(\beta) \sim \mathcal{N}(\beta_0, \Omega_0)\]</span></p>
-<p>To identify <span class="math inline">\(\beta_0\)</span> and <span class="math inline">\(\Omega_0\)</span>, Litterman (1986) proposed the following strategy. As most observed macroeconomic variables seem to be characterized by a unit root (in the sense that their changes are impossible to forecast), our prior belief should be that each endogenous variable included in the model presents a unit root in its first own lags, and coefficients equal to zero for further lags and cross-variable lag coefficients. In the absence of prior belief about exogenous variables, the most reasonable strategy is to assume that they are neutral with respect to the endogenous variables, and hence that their coefficients are equal to zero as well. These elements translate into <span class="math inline">\(\beta_0\)</span> being a vector of zeros, save for the entries concerning the first own lag of each endogenous variable which are attributed values of 1. Note though that in the case of variables known to be stationary, this unit root hypothesis may not be suitable, so that a value around 0.8 may be preferred to a value of 1.</p>
+<div id="welcome" class="section level1 unnumbered">
+<h1>Welcome</h1>
 
-</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="methods.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+
+<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
